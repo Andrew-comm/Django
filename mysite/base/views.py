@@ -126,7 +126,7 @@ def userProfile(request,pk):
     topics = Topic.objects.all()
 
 
-    context = {'user':user, 'rooms':rooms,'room_message':room_messages, "topics":topics}
+    context = {'user':user, 'rooms':rooms,'room_messages':room_messages, "topics":topics}
     return render(request,"profile.html",context)
 
 
@@ -138,7 +138,10 @@ def createRoom(request):
     if request.method == 'POST':
          form = RoomForm(request.POST)
          if form.is_valid():
-            form.save()
+            room = form.save(commit=False)
+            room.host = request.user
+            room.save()
+            
             return redirect('home')
 
         
