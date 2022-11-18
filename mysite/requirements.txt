@@ -1,0 +1,11 @@
+
+
+
+Django==4.1.2
+djangorestframework==3.14.0
+Pillow==9.0.1
+urllib3==1.26.5
+waitress==2.1.2
+whitenoise==6.2.0
+gunicorn
+django-heroku
