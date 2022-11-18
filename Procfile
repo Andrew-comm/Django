@@ -1,1 +1,1 @@
-waitress-serve --port=80 mysite.wsgi:application
+web:gunicorn mysite.wsgi --log-file
